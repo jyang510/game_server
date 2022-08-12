@@ -4,7 +4,8 @@
 채팅한 내역들을 저장하는 것 등등부터 기능을 넓혀가려고 한다.
 
 첫 날은 간단하게 세팅만 진행한다.
-
+세팅은 이 분 껄 보고 처음에 시작했다.
+https://velog.io/@qhgus/Node-Express-TypeScript-%ED%99%98%EA%B2%BD-%EC%84%B8%ED%8C%85
 
 npm와 yarn 중에 yarn을 선택한 이유는 다음 글을 읽고나서 yarn이 훨씬 매력적이라고 생각이 들어서 사용했다. 
 

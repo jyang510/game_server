@@ -1,15 +1,23 @@
-import express, { Request, Response, NextFunction } from "express";
+// src/index.ts
 
-const app = express();
+import * as http from "http";
+import * as socketIO from "socket.io";
 
-app.get("/welcome", (req: Request, res: Response, next: NextFunction) => {
-  res.send("welcome!");
-});
+import { Message } from "./domain/message";
 
-app.listen("1234", () => {
-  console.log(`
-  ################################################
-  🛡️  Server listening on port: 1234🛡️
-  ################################################
-`);
-});
+function run(port: number = 3000): void {
+  let server: http.Server = http.createServer();
+  let io: any = socketIO(server);
+
+  server.listen(port, () => {
+    console.log("Listening port %s", port);
+  });
+
+  io.on("connection", (socket: any) => {
+    socket.on("message", (message: Message) => {
+      io.emit("message", JSON.stringify(message));
+    });
+  });
+}
+
+run(3000);
